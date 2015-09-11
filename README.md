@@ -1,5 +1,9 @@
 # Tabs Field
+<<<<<<< HEAD
 ## Tabbed Fields for Kirby CMS
+=======
+### Tabbed Fields for Kirby CMS
+>>>>>>> 90a9e57432dbacf2155ddfbcca52e67c650b98b2
 
 ![Tabs](/tabfield.png)
 
@@ -29,4 +33,8 @@ fields:
   link:
     label: Link
     type:  url
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 90a9e57432dbacf2155ddfbcca52e67c650b98b2
