@@ -1,5 +1,5 @@
 # Tabs Field
-## Tabbed Fields for Kirby CMS
+### Tabbed Fields for Kirby CMS
 
 ![Tabs](/tabfield.png)
 
