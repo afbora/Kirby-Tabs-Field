@@ -1,18 +1,21 @@
 (function($) {
-  $(document).ready(function() {
 
-    if (app && typeof app == 'object') {
-      $(app.main).on('view:load', initModalModules);
-    }
+  var Tab = function(element) {
 
-    function initModalModules() 
-	{  
+    var self = this;
+
+    // basic elements and stuff
+    this.tab = $(element);
+
+    // init
+    this.init = function () {
+
 		if ($('.fieldset input.tabfield').length)
 		{
 		  if ($(".fieldset").length)
 		  {
-			  $('.fieldset').removeClass("fieldset-fixed");
-			  $(".fieldset").prepend($("<ul></ul>").addClass("tabs"));
+			$('.fieldset').first().removeClass("fieldset-fixed");
+			$(".fieldset").first().prepend($("<ul></ul>").addClass("tabs"));
 		  }
 
 		  else{
@@ -20,6 +23,12 @@
 		  }
 
 		  $('.fieldset label.tabfield').each(function() {
+		  	var name = $(this).children()[0].name;
+		  	$('[name="'+name+'"]').each(function(i,v) {
+		  		if(i!==0) {
+		  			$(this).remove();
+		  		}
+		  	});
 			var title = "<li class='tab' href='" + $(this).attr('name') + "'>" + $(this).closest(".field-grid-item").text().trim() + "</li>";
 			$(".tabs").append(title);
 		  });
@@ -55,8 +64,28 @@
 		  });
 		
 		}
-    }
 
+    };
 
-  });
-}(jQuery));
+    // start the plugin
+    return this.init();
+
+  };
+
+  // jquery helper for the tab plugin
+  $.fn.tabfield = function() {
+
+    return this.each(function(i,v) {
+      if($(this).data('tabfield')) {
+        return $(this).data('tabfield');
+      } else {
+        var tab = new Tab(this);
+        $(this).data('tabfield', tab);
+        return tab;
+      }
+
+    });
+
+  };
+
+})(jQuery);
