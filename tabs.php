@@ -32,6 +32,7 @@ class TabsField extends InputField
     $wrapper->attr('for', $this->id());
     $wrapper->removeAttr('id');
     $wrapper->addClass('tabfield');
+    $wrapper->attr('data-field','tabfield');
     $wrapper->prepend($input);
 
     return $wrapper;
@@ -46,7 +47,7 @@ class TabsField extends InputField
   }
 
   public function validate() {
-    return v::accepted($this->value());
+    return true;
   }
 
 }
