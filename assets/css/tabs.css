@@ -1,23 +1,12 @@
-.group-title{
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-  opacity: 0;
-  height: 0;
-  width: 0;
-  font-size: 0;
-}
-
-ul.tabs{
+.tab-nav {
   width: 100%;
   margin-bottom: 20px;
   padding-left: 1.5em;
   list-style: none;
   border-bottom: 4px solid #dddddd;
-  float: right;
 }
 
-ul.tabs li{
+.tab-nav li {
   display: inline-block;
   padding: 8px;
   margin-right: 5px;
@@ -29,16 +18,20 @@ ul.tabs li{
   padding: 10px 15px;
 }
 
-ul.tabs li.current{
+.tab-nav li.active {
   border-bottom: 4px solid #8dae28;
   background: #efefef;
 }
 
-.group{
-  display: none;
-  padding: 0;
+.tab-container {
+  /* display: none; causes the Kirby textarea to be unable to determine the correct */
+  /* height to set itself too. It usually ends up too big. Instead, we move the div */
+  /* off-screen so that the textarea can properly determine it's height */
+  position: absolute;
+  left: -99999px;
 }
 
-.group.current{
-  display: inherit;
+.tab-container.active {
+  position: relative;
+  left: auto;
 }
