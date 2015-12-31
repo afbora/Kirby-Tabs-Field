@@ -8,23 +8,29 @@ var TABNAME_ATTR         = "data-tab-name";    // Data attribute that stores the
 var TAB_ACTIVE_CLASS     = "active";           // Class for the active tab
 var TAB_NAV_CLASS        = "tab-nav";          // Class for the tab navigation element
 var TAB_CONTAINER_CLASS  = "tab-container";    // Class for each tab container
-var CURRENT_TAB_STORAGE  = "tabs" + window.location.pathname;
-                                               // sessionStorage key for the currently active tab
-
-var handleNavigationClick = function($tabLink, $tabContainer, tabName) {
-   $tabLink.siblings().removeClass(TAB_ACTIVE_CLASS);
-   $tabLink.addClass(TAB_ACTIVE_CLASS);
-
-   $tabContainer.siblings().removeClass(TAB_ACTIVE_CLASS);
-   $tabContainer.addClass(TAB_ACTIVE_CLASS);
-
-   sessionStorage[CURRENT_TAB_STORAGE] = tabName;
-};
 
 /***********************/
 /* Tab Field init      */
 /***********************/
 $.fn.tabs = function() {
+   // sessionStorage key for the currently active tab
+   var CURRENT_TAB_STORAGE  = "tabs" + window.location.pathname;
+   console.log(CURRENT_TAB_STORAGE);
+
+   /**********************************/
+   /* Handle clicks on the tab links */
+   /**********************************/
+   var handleNavigationClick = function($tabLink, $tabContainer, tabName) {
+      $tabLink.siblings().removeClass(TAB_ACTIVE_CLASS);
+      $tabLink.addClass(TAB_ACTIVE_CLASS);
+
+      $tabContainer.siblings().removeClass(TAB_ACTIVE_CLASS);
+      $tabContainer.addClass(TAB_ACTIVE_CLASS);
+
+      sessionStorage[CURRENT_TAB_STORAGE] = tabName;
+   };
+
+
    return this.each(function() {
       var $placeholder  = $(this);    // The tab container placeholder
       var $tabContainer = $("<div>"); // The container for the tab content
