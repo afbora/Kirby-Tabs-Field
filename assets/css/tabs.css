@@ -30,9 +30,18 @@
   padding: 10px 15px;
 }
 
+.tab-nav li .fa {
+  margin-right: 10px;
+  color: #bbb;
+}
+
 .tab-nav li.active {
   border-bottom: 4px solid #8dae28;
   background: #efefef;
+}
+
+.tab-nav li.active .fa {
+  color: black;
 }
 
 .tab-container {

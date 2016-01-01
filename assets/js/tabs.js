@@ -5,6 +5,7 @@
 /*************/
 var PLACEHOLDER_SELECTOR = ".tab-placeholder"; // Selector for tab placeholder elements
 var TABNAME_ATTR         = "data-tab-name";    // Data attribute that stores the tab name
+var TABICON_ATTR         = "data-icon";        // Data attribute that stores the icon
 var TAB_ACTIVE_CLASS     = "active";           // Class for the active tab
 var TAB_NAV_CLASS        = "tab-nav";          // Class for the tab navigation element
 var TAB_CONTAINER_CLASS  = "tab-container";    // Class for each tab container
@@ -37,6 +38,7 @@ $.fn.tabs = function() {
       var $tabNav       = $placeholder.siblings("." + TAB_NAV_CLASS);   // The tab navigation container
       var $tabContent   = $placeholder.nextUntil(PLACEHOLDER_SELECTOR); // The elements that are part of this tab
       var tabName       = $placeholder.attr(TABNAME_ATTR);              // The name of this tab
+      var icon          = $placeholder.attr(TABICON_ATTR);
 
       // Setup the tabbing navigation if necessary
       if ($tabNav.length === 0) {
@@ -56,7 +58,7 @@ $.fn.tabs = function() {
       $placeholder .remove();
 
       // Setup the navigation link
-      $tabLink.text(tabName);
+      $tabLink.html((typeof icon !== "undefined" && icon !== null ? '<i class="fa fa-'+icon+'"></i>' : '')+tabName);
       $tabLink.on("click", handleNavigationClick.bind(null, $tabLink, $tabContainer, tabName));
       $tabNav.append($tabLink);
 
