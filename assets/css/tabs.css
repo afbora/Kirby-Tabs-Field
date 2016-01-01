@@ -4,6 +4,18 @@
   padding-left: 1.5em;
   list-style: none;
   border-bottom: 4px solid #dddddd;
+  top: 0px;
+  position: relative;
+  background: #EFEFEF;
+  z-index: 10;
+}
+
+@media screen and (min-height: 700px) {
+  .tab-nav {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: sticky;
+  }
 }
 
 .tab-nav li {
@@ -29,9 +41,13 @@
   /* off-screen so that the textarea can properly determine it's height */
   position: absolute;
   left: -99999px;
+  opacity: 0;
+  top: -9999999px;
 }
 
 .tab-container.active {
   position: relative;
   left: auto;
+  opacity: 1;
+  top: 0;
 }
