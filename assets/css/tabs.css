@@ -1,23 +1,31 @@
-.group-title{
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-  opacity: 0;
-  height: 0;
-  width: 0;
-  font-size: 0;
-}
-
-ul.tabs{
+.tab-nav {
   width: 100%;
   margin-bottom: 20px;
   padding-left: 1.5em;
   list-style: none;
   border-bottom: 4px solid #dddddd;
-  float: right;
+  top: 0px;
+  position: relative;
+  background: #EFEFEF;
+  z-index: 10;
 }
 
-ul.tabs li{
+@media screen and (min-height: 700px) {
+  .tab-nav {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: sticky;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .tab-nav {
+    border-bottom: none;
+  }
+}
+
+
+.tab-nav li {
   display: inline-block;
   padding: 8px;
   margin-right: 5px;
@@ -29,16 +37,55 @@ ul.tabs li{
   padding: 10px 15px;
 }
 
-ul.tabs li.current{
+@media screen and (max-width: 500px) {
+  .tab-nav li {
+    display: block;
+    background: #dddddd;
+    border-bottom: none;
+    margin-bottom: 2px;
+  }
+}
+
+.tab-nav li .fa {
+  margin-right: 10px;
+  color: #bbb;
+}
+
+.tab-nav li.active {
   border-bottom: 4px solid #8dae28;
   background: #efefef;
 }
 
-.group{
-  display: none;
-  padding: 0;
+.tab-nav li.active .fa {
+  color: black;
 }
 
-.group.current{
-  display: inherit;
+@media screen and (max-width: 500px) {
+  .tab-nav li.active {
+    border-bottom: none;
+    background: #8dae28;
+    color: white;
+  }
+
+  .tab-nav li.active .fa {
+    color: white;
+  }
+}
+
+
+.tab-container {
+  /* display: none; causes the Kirby textarea to be unable to determine the correct */
+  /* height to set itself too. It usually ends up too big. Instead, we move the div */
+  /* off-screen so that the textarea can properly determine it's height */
+  position: absolute;
+  left: -99999px;
+  opacity: 0;
+  top: -9999999px;
+}
+
+.tab-container.active {
+  position: relative;
+  left: auto;
+  opacity: 1;
+  top: 0;
 }
