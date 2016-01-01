@@ -18,6 +18,13 @@
   }
 }
 
+@media screen and (max-width: 500px) {
+  .tab-nav {
+    border-bottom: none;
+  }
+}
+
+
 .tab-nav li {
   display: inline-block;
   padding: 8px;
@@ -28,6 +35,15 @@
   cursor: pointer;
   font-weight: 600;
   padding: 10px 15px;
+}
+
+@media screen and (max-width: 500px) {
+  .tab-nav li {
+    display: block;
+    background: #dddddd;
+    border-bottom: none;
+    margin-bottom: 2px;
+  }
 }
 
 .tab-nav li .fa {
@@ -43,6 +59,19 @@
 .tab-nav li.active .fa {
   color: black;
 }
+
+@media screen and (max-width: 500px) {
+  .tab-nav li.active {
+    border-bottom: none;
+    background: #8dae28;
+    color: white;
+  }
+
+  .tab-nav li.active .fa {
+    color: white;
+  }
+}
+
 
 .tab-container {
   /* display: none; causes the Kirby textarea to be unable to determine the correct */
