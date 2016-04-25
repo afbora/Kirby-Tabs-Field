@@ -2,7 +2,7 @@
   margin-bottom: 20px;
   margin-left: 1.5em;
   list-style: none;
-  border-bottom: 4px solid #dddddd;
+  border-bottom: 2px solid #dddddd;
   top: 0px;
   position: relative;
   background: #EFEFEF;
@@ -30,14 +30,13 @@
 
 .tab-nav li {
   display: inline-block;
-  padding: 8px;
   margin-right: 5px;
-  margin-bottom: -4px;
+  margin-bottom: -2px;
   background: none;
   display: inline-block;
   cursor: pointer;
   font-weight: 600;
-  padding: 10px 15px;
+  padding: 0px 10px .75em 10px;
 }
 
 @media screen and (max-width: 500px) {
@@ -45,7 +44,8 @@
     display: block;
     background: #dddddd;
     border-bottom: none;
-    margin-bottom: 2px;
+    margin-bottom: 0;
+    padding: 8px 10px 10px 10px;
   }
 }
 
@@ -55,7 +55,7 @@
 }
 
 .tab-nav li.active {
-  border-bottom: 4px solid #8dae28;
+  border-bottom: 2px solid black;
   background: #efefef;
 }
 
