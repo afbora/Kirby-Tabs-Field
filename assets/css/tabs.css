@@ -2,7 +2,7 @@
   margin-bottom: 20px;
   margin-left: 1.5em;
   list-style: none;
-  border-bottom: 4px solid #dddddd;
+  border-bottom: 2px solid #dddddd;
   top: 0px;
   position: relative;
   background: #EFEFEF;
@@ -30,24 +30,20 @@
 
 .tab-nav li {
   display: inline-block;
-  padding: 8px;
-  margin-right: 5px;
-  margin-bottom: -4px;
+  margin-right: 20px;
+  margin-bottom: -2px;
   background: none;
   display: inline-block;
   cursor: pointer;
   font-weight: 600;
-  padding: 10px 15px;
+  padding: 0px 0 .75em 0;
 }
 
-@media screen and (max-width: 500px) {
-  .tab-nav li {
-    display: block;
-    background: #dddddd;
-    border-bottom: none;
-    margin-bottom: 2px;
-  }
+.tab-nav li:hover {
+  border-bottom: 2px solid rgba(0, 0, 0, .15);
 }
+
+
 
 .tab-nav li .fa {
   margin-right: 10px;
@@ -55,26 +51,13 @@
 }
 
 .tab-nav li.active {
-  border-bottom: 4px solid #8dae28;
+  border-bottom: 2px solid black;
   background: #efefef;
 }
 
 .tab-nav li.active .fa {
   color: black;
 }
-
-@media screen and (max-width: 500px) {
-  .tab-nav li.active {
-    border-bottom: none;
-    background: #8dae28;
-    color: white;
-  }
-
-  .tab-nav li.active .fa {
-    color: white;
-  }
-}
-
 
 .tab-container {
   /* display: none; causes the Kirby textarea to be unable to determine the correct */
@@ -91,4 +74,28 @@
   left: auto;
   opacity: 1;
   top: 0;
+}
+
+@media screen and (max-width: 500px) {
+  .tab-nav {
+    background-color: white;
+    border: 2px solid #DDDDDD;
+  }
+  .tab-nav li {
+    display: block;
+    background: white;
+    border-bottom: none;
+    margin: 0;
+    padding: 8px 10px 10px 10px;
+  }
+  .tab-nav li:hover {
+    border: none;
+  }
+  .tab-nav li.active {
+    border-bottom: none;
+  }
+
+  .tab-nav li.active .fa {
+    color: white;
+  }
 }
