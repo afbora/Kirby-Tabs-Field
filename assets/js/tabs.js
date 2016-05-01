@@ -65,6 +65,10 @@ $.fn.tabs = function() {
       // If this is the last saved tab, make it active
       if (sessionStorage[CURRENT_TAB_STORAGE] === tabName)
          $tabLink.trigger("click");
+         $(window).load(function() {
+           $("input").blur();
+           $(".tab-container.active .input").first().focus();
+         });
    });
 };
 
