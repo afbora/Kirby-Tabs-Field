@@ -7,6 +7,8 @@
   position: relative;
   background: #EFEFEF;
   z-index: 10;
+  padding-top: 1.5em;
+  margin-top: -1.5em;
 }
 
 .modal-content .tab-nav {
