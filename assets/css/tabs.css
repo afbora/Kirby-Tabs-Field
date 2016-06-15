@@ -7,8 +7,6 @@
   position: relative;
   background: #EFEFEF;
   z-index: 10;
-  padding-top: 1.5em;
-  margin-top: -1.5em;
 }
 
 .modal-content .tab-nav {
@@ -63,19 +61,16 @@
 
 .tab-container {
   /* display: none; causes the Kirby textarea to be unable to determine the correct */
-  /* height to set itself too. It usually ends up too big. Instead, we move the div */
-  /* off-screen so that the textarea can properly determine it's height */
-  position: absolute;
-  left: -99999px;
-  opacity: 0;
-  top: -9999999px;
+  /* height to set itself too. It usually ends up too big. Instead, we set the div */
+  /* to 0px height so that the textarea can properly determine it's height */
+  visibility: hidden;
+  max-height: 0px;
+  overflow: hidden;
 }
 
 .tab-container.active {
-  position: relative;
-  left: auto;
-  opacity: 1;
-  top: 0;
+  visibility: visible;
+  max-height: 9999px;
 }
 
 @media screen and (max-width: 500px) {
