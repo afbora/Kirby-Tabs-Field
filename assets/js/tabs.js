@@ -39,7 +39,9 @@ $.fn.tabs = function() {
       var $tabContent   = $placeholder.nextUntil(PLACEHOLDER_SELECTOR); // The elements that are part of this tab
       var tabName       = $placeholder.attr(TABNAME_ATTR);              // The name of this tab
       var icon          = $placeholder.attr(TABICON_ATTR);
-
+      
+      $tabLink.attr("data-name", tabName);
+      
       // Setup the tabbing navigation if necessary
       if ($tabNav.length === 0) {
          $tabNav = $("<ul>").addClass(TAB_NAV_CLASS);
@@ -53,6 +55,7 @@ $.fn.tabs = function() {
 
       // Setup the tab container
       $tabContainer.addClass(TAB_CONTAINER_CLASS);
+      $tabContainer.attr("data-name", tabName);
       $tabContainer.append($tabContent);
       $placeholder .after($tabContainer);
       $placeholder .remove();
@@ -65,12 +68,34 @@ $.fn.tabs = function() {
       // If this is the last saved tab, make it active
       if (sessionStorage[CURRENT_TAB_STORAGE] === tabName)
          $tabLink.trigger("click");
-         $(window).load(function() {
-           $("input").blur();
-           $(".tab-container.active .input").first().focus();
-         });
    });
+
 };
 
 
 }(jQuery));
+
+
+$(document).ready(function(){
+  
+    $(window).load(function() {
+      $("input").blur();
+      $(".tab-container.active .input").first().focus();
+    });
+    
+    $(document).on("DOMSubtreeModified", "header.topbar", function(){ 
+        if ($(".message-is-alert").length && $(".field-with-error").length) {
+          setTimeout(function()  {
+              $(".tab-nav li").removeClass("active");
+              $('.tab-nav li[data-name="' + $(".field-with-error").closest(".tab-container").data("name") + '"]').addClass("active");
+              $(".tab-container").removeClass("active");
+              $(".field-with-error").closest(".tab-container").addClass("active");
+              $("input").blur();
+              $(".tab-container.active .input").first().focus();    
+              sessionStorage["tabs" + window.location.pathname] = $(".field-with-error").closest(".tab-container").data("name");
+          }, 100);
+        }
+      
+    });
+    
+});
