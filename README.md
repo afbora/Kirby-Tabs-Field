@@ -5,6 +5,10 @@
 
 The tab field type is designed specifically for use within the fields.
 
+![Error](/tabswitch.gif)
+
+If there's an error in another tab, like an empty but required field, the tab will be automatically switched.
+
 
 #### Blueprint Example
 ``` YAML
