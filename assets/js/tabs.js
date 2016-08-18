@@ -27,6 +27,8 @@ $.fn.tabs = function() {
       $tabContainer.siblings().removeClass(TAB_ACTIVE_CLASS);
       $tabContainer.addClass(TAB_ACTIVE_CLASS);
 
+      $("form.form").attr("novalidate", "novalidate");
+      
       sessionStorage[CURRENT_TAB_STORAGE] = tabName;
    };
 
@@ -77,8 +79,6 @@ $.fn.tabs = function() {
 
 
 $(document).ready(function(){
-  
-    $("form.form").attr("novalidate", "novalidate");
   
     $(window).load(function() {
       $("input").blur();
