@@ -78,6 +78,8 @@ $.fn.tabs = function() {
 
 $(document).ready(function(){
   
+    $("form.form").attr("novalidate", "novalidate");
+  
     $(window).load(function() {
       $("input").blur();
       $(".tab-container.active .input").first().focus();
@@ -93,7 +95,7 @@ $(document).ready(function(){
               $("input").blur();
               $(".tab-container.active .input").first().focus();    
               sessionStorage["tabs" + window.location.pathname] = $(".field-with-error").closest(".tab-container").data("name");
-          }, 100);
+          }, 1);
         }
       
     });
