@@ -1,7 +1,7 @@
 # Tabs Field
 ## Tabbed Fields for Kirby CMS
 
-![Tabs](/tabfield.png)
+![Tabs](/tabfield.gif)
 
 The tab field type is designed specifically for use within the fields.
 
