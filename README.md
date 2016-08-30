@@ -1,4 +1,4 @@
-# Tabs Field
+# Tabs Field v1.5
 ## Tabbed Fields for Kirby CMS
 
 ![Preview](/preview.gif)
