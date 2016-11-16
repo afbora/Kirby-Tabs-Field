@@ -8,6 +8,7 @@ var TABNAME_ATTR         = "data-tab-name";    // Data attribute that stores the
 var TABICON_ATTR         = "data-icon";        // Data attribute that stores the icon
 var TAB_ACTIVE_CLASS     = "active";           // Class for the active tab
 var TAB_NAV_CLASS        = "tab-nav";          // Class for the tab navigation element
+var TAB_NAV_WRAP_CLASS        = "tab-nav-wrap";// Class for the tab navigation wrapper
 var TAB_CONTAINER_CLASS  = "tab-container";    // Class for each tab container
 
 /***********************/
@@ -28,7 +29,7 @@ $.fn.tabs = function() {
       $tabContainer.addClass(TAB_ACTIVE_CLASS);
 
       $("form.form").attr("novalidate", "novalidate");
-      
+
       sessionStorage[CURRENT_TAB_STORAGE] = tabName;
    };
 
@@ -41,12 +42,12 @@ $.fn.tabs = function() {
       var $tabContent   = $placeholder.nextUntil(PLACEHOLDER_SELECTOR); // The elements that are part of this tab
       var tabName       = $placeholder.attr(TABNAME_ATTR);              // The name of this tab
       var icon          = $placeholder.attr(TABICON_ATTR);
-      
+
       $tabLink.attr("data-name", tabName);
-      
+
       // Setup the tabbing navigation if necessary
       if ($tabNav.length === 0) {
-         $tabNav = $("<ul>").addClass(TAB_NAV_CLASS);
+         $tabNav = $("<ul>").addClass(TAB_NAV_CLASS).append('<div class="' + TAB_NAV_WRAP_CLASS + '"></div>');
          $placeholder.parent().prepend($tabNav);
 
          // Since the navigation must be created, this is the first tab and should be
@@ -65,7 +66,7 @@ $.fn.tabs = function() {
       // Setup the navigation link
       $tabLink.html((typeof icon !== "undefined" && icon !== null ? '<i class="fa fa-'+icon+'"></i>' : '')+tabName);
       $tabLink.on("click", handleNavigationClick.bind(null, $tabLink, $tabContainer, tabName));
-      $tabNav.append($tabLink);
+      $tabNav.find("." + TAB_NAV_WRAP_CLASS).append($tabLink);
 
       // If this is the last saved tab, make it active
       if (sessionStorage[CURRENT_TAB_STORAGE] === tabName)
@@ -79,13 +80,13 @@ $.fn.tabs = function() {
 
 
 $(document).ready(function(){
-  
+
     $(window).load(function() {
       $("input").blur();
       $(".tab-container.active .input").first().focus();
     });
-    
-    $(document).on("DOMSubtreeModified", "header.topbar", function(){ 
+
+    $(document).on("DOMSubtreeModified", "header.topbar", function(){
         if ($(".message-is-alert").length && $(".field-with-error").length) {
           setTimeout(function()  {
               $(".tab-nav li").removeClass("active");
@@ -93,11 +94,11 @@ $(document).ready(function(){
               $(".tab-container").removeClass("active");
               $(".field-with-error").closest(".tab-container").addClass("active");
               $("input").blur();
-              $(".tab-container.active .input").first().focus();    
+              $(".tab-container.active .input").first().focus();
               sessionStorage["tabs" + window.location.pathname] = $(".field-with-error").closest(".tab-container").data("name");
           }, 1);
         }
-      
+
     });
-    
+
 });

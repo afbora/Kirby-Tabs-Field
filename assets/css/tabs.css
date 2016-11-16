@@ -1,14 +1,27 @@
 .tab-nav {
-  margin-bottom: 20px;
   margin-left: 1.5em;
   margin-top: -1.5em;
-  padding-top: 1.5em;
   list-style: none;
-  border-bottom: 2px solid #dddddd;
   top: 0px;
   position: relative;
-  background: #EFEFEF;
   z-index: 10;
+  height: 50px;
+  margin-bottom: 2em;
+}
+
+.tab-nav .tab-nav-wrap {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding-top: 1.5em;
+  background-color: #EFEFEF;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAIAAAAW4yFwAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgTWFjaW50b3NoIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkYzQTIwM0FDQTNCQTExRTZCOURERDhDMEEzMEY5QzdBIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkYzQTIwM0FEQTNCQTExRTZCOURERDhDMEEzMEY5QzdBIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RkQzMTYyRkZBMzhDMTFFNkI5REREOEMwQTMwRjlDN0EiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RkQzMTYzMDBBMzhDMTFFNkI5REREOEMwQTMwRjlDN0EiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5D5IWaAAAAE0lEQVR42mK4e/cuEwMDA0CAAQAPmgKa58SUuQAAAABJRU5ErkJggg==');
+  background-position: bottom;
+  background-repeat: repeat-x;
+  border-bottom: 5px solid #EFEFEF;
 }
 
 .modal-content .tab-nav {
@@ -33,14 +46,14 @@
 .tab-nav li {
   display: inline-block;
   margin-right: 20px;
-  margin-bottom: -2px;
   background: none;
-  display: inline-block;
   cursor: pointer;
   font-weight: 600;
   padding: 0px 0 .75em 0;
 }
-
+.tab-nav li:last-child {
+  margin-right: 0;
+}
 .tab-nav li:hover {
   border-bottom: 2px solid rgba(0, 0, 0, .15);
 }
@@ -82,6 +95,14 @@
     border: 2px solid #DDDDDD;
     margin-top: -1.5em;
     padding-top: 0;
+    height: auto;
+  }
+  .tab-nav .tab-nav-wrap {
+    position: static;
+    overflow: auto;
+    background: none;
+    border-bottom: none;
+    padding-top: 0;
   }
   .tab-nav li {
     display: block;
@@ -100,6 +121,6 @@
   .tab-nav li.active .fa {
     color: white;
   }
-  
-  
+
+
 }
