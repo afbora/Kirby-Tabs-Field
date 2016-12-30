@@ -70,6 +70,10 @@
   background: #efefef;
 }
 
+.modal .tab-nav li.active {
+  background: white;
+}
+
 .tab-nav li.active .fa {
   color: black;
 }
