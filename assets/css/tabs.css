@@ -85,12 +85,17 @@
   visibility: hidden;
   max-height: 0px;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .tab-container.active {
   visibility: visible;
   max-height: 9999px;
   overflow: visible;
+  z-index: 2;
+  pointer-events: auto;
 }
 
 @media screen and (max-width: 500px) {
