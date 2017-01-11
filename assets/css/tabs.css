@@ -88,6 +88,7 @@
   position: relative;
   z-index: 1;
   pointer-events: none;
+  transform: translateX(-9999px);
 }
 
 .tab-container.active {
@@ -96,6 +97,7 @@
   overflow: visible;
   z-index: 2;
   pointer-events: auto;
+  transform: none;
 }
 
 @media screen and (max-width: 500px) {
