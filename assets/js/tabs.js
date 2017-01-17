@@ -89,16 +89,28 @@ $(document).ready(function(){
     $(document).on("DOMSubtreeModified", "header.topbar", function(){
         if ($(".message-is-alert").length && $(".field-with-error").length) {
           setTimeout(function()  {
-              $(".tab-nav li").removeClass("active");
-              $('.tab-nav li[data-name="' + $(".field-with-error").closest(".tab-container").data("name") + '"]').addClass("active");
-              $(".tab-container").removeClass("active");
-              $(".field-with-error").closest(".tab-container").addClass("active");
+              $(".mainbar .tab-nav li").removeClass("active");
+              $('.mainbar .tab-nav li[data-name="' + $(".field-with-error").first().closest(".tab-container").data("name") + '"]').addClass("active");
+              $(".mainbar .tab-container").removeClass("active");
+              $(".mainbar .field-with-error").first().closest(".tab-container").addClass("active");
               $("input").blur();
-              $(".tab-container.active .input").first().focus();
-              sessionStorage["tabs" + window.location.pathname] = $(".field-with-error").closest(".tab-container").data("name");
+              $(".mainbar .tab-container.active .input").first().focus();
+              sessionStorage["tabs" + window.location.pathname] = $(".mainbar .field-with-error").first().closest(".tab-container").data("name");
           }, 1);
         }
-
+    });
+    
+    $(document).on("DOMSubtreeModified", ".modal-content", function(e){        
+        if ($(e.target).is("div") && $(".field-with-error").length) {
+          setTimeout(function()  {
+              $(".modal-content .tab-nav li").removeClass("active");
+              $('.modal-content .tab-nav li[data-name="' + $(".field-with-error").first().closest(".tab-container").data("name") + '"]').addClass("active");
+              $(".modal-content .tab-container").removeClass("active");
+              $(".modal-content .field-with-error").first().closest(".tab-container").addClass("active");
+              $("input").blur();
+              $(".modal-content .tab-container.active .input").focus();
+          }, 1);
+        }
     });
 
 });
