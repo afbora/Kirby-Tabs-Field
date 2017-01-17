@@ -24,8 +24,9 @@
   border-bottom: 5px solid #EFEFEF;
 }
 
-.modal-content .tab-nav {
-  background: white;
+.modal-content .tab-nav .tab-nav-wrap{
+  background-color: white;
+  border-bottom: none;
 }
 
 @media screen and (min-height: 700px) {
