@@ -22,14 +22,14 @@ $ kirby plugin:install afbora/Kirby-Tabs-Field
 
 ###### 2.1. Cloning
 ```bash
-$ cd /your/kirby/instalation/site/plugins
-$ git clone https://github.com/afbora/Kirby-Tabs-Field.git
+$ cd /your/kirby/instalation/site/fields
+$ git clone https://github.com/afbora/Kirby-Tabs-Field.git tabs
 ```
 
 ###### 2.2. Submodule
 ```bash
 $ cd /your/kirby/instalation/
-$ git submodule add https://github.com/afbora/Kirby-Tabs-Field site/plugins/kirby-tabs-field
+$ git submodule add https://github.com/afbora/Kirby-Tabs-Field site/fields/tabs
 ```
 
 ### 3. Tarball
