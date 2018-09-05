@@ -16,8 +16,12 @@ var TAB_CONTAINER_CLASS  = "tab-container";    // Class for each tab container
 /***********************/
 $.fn.tabs = function() {
    // sessionStorage key for the currently active tab
-   var CURRENT_TAB_STORAGE  = "tabs" + window.location.pathname;
+   var CURRENT_TAB_STORAGE  = (function() {
+    var pathName = window.location.pathname;
 
+    return "tabs"+ pathName.replace(/\/page:[0-9]+/,"");
+  }());
+   
    /**********************************/
    /* Handle clicks on the tab links */
    /**********************************/
