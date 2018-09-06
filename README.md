@@ -1,4 +1,4 @@
-# Tabs Field v1.6
+# Tabs Field v1.7
 ### Tabbed Fields for Kirby CMS
 
 ![Preview](/preview.gif)
@@ -34,7 +34,7 @@ $ git submodule add https://github.com/afbora/Kirby-Tabs-Field site/fields/tabs
 
 ### 3. Tarball
 
-Simply [download this repository](https://github.com/afbora/Kirby-Tabs-Field/archive/master.zip) and extract it into `/your-kirby-installation/site/plugins/`.
+Simply [download this repository](https://github.com/afbora/Kirby-Tabs-Field/archive/master.zip) and extract it into `/your-kirby-installation/site/fields/`.
 
 
 ## Blueprint Example
